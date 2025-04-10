@@ -25,3 +25,8 @@ require('nvim-treesitter.configs').setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+" Set tab width to 4 spaces "
+set tabstop=4       
+set shiftwidth=4    
+set expandtab      
