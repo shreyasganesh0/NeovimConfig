@@ -10,6 +10,8 @@ vim.cmd [[
 call plug#begin('~/.config/nvim/plugged')
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ThePrimeagen/harpoon'
+Plug 'nvim-lua/plenary.nvim' 
 call plug#end()
 ]]
 require('catppuccin').setup({
@@ -31,3 +33,19 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+local harpoon_mark = require("harpoon.mark")
+local harpoon_ui = require("harpoon.ui")
+
+-- Add current file to Harpoon list
+vim.keymap.set("n", "<leader>a", harpoon_mark.add_file, { desc = "Add file to Harpoon" })
+
+-- Toggle Harpoon quick menu
+vim.keymap.set("n", "<leader>o", harpoon_ui.toggle_quick_menu, { desc = "Open Harpoon menu" })
+
+-- Navigate to files 1-4 in Harpoon list
+vim.keymap.set("n", "<C-h>", function() harpoon_ui.nav_file(1) end, { desc = "Go to Harpoon file 1" })
+vim.keymap.set("n", "<C-j>", function() harpoon_ui.nav_file(2) end, { desc = "Go to Harpoon file 2" })
+vim.keymap.set("n", "<C-k>", function() harpoon_ui.nav_file(3) end, { desc = "Go to Harpoon file 3" })
+vim.keymap.set("n", "<C-l>", function() harpoon_ui.nav_file(4) end, { desc = "Go to Harpoon file 4" })
+
