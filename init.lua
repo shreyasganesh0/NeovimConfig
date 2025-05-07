@@ -12,12 +12,14 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'deviantfero/wpgtk.vim'
+Plug 'arizzoni/wal.nvim'
 call plug#end()
 ]]
 
 vim.o.termguicolors = true          -- enable GUI colors in the TUI 
 vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1  -- ensure legacy support if needed
-vim.cmd('colorscheme wpgtk')   -- or "wpgtkAlt"
+vim.g.wal_path = os.getenv("HOME") .. "/.cache/wal/colors.json"
+vim.cmd('colorscheme wal')   -- or "wpgtkAlt"
 
 vim.cmd [[
   highlight Normal   guibg=NONE ctermbg=NONE
