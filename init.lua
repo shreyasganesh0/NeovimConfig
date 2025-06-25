@@ -13,13 +13,46 @@ Plug 'ThePrimeagen/harpoon'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'deviantfero/wpgtk.vim'
 Plug 'arizzoni/wal.nvim'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'numToStr/Comment.nvim'
 call plug#end()
 ]]
 
+require('Comment').setup()
+
+-- Default options:
+require('kanagawa').setup({
+    compile = false,             -- enable compiling the colorscheme
+    undercurl = true,            -- enable undercurls
+    commentStyle = { italic = true },
+    functionStyle = {},
+    keywordStyle = { italic = true},
+    statementStyle = { bold = true },
+    typeStyle = {},
+    transparent = false,         -- do not set background color
+    dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
+    terminalColors = true,       -- define vim.g.terminal_color_{0,17}
+    colors = {                   -- add/modify theme and palette colors
+        palette = {},
+        theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    },
+    overrides = function(colors) -- add/modify highlights
+        return {}
+    end,
+    theme = "wave",              -- Load "wave" theme
+    background = {               -- map the value of 'background' option to a theme
+        dark = "wave",           -- try "dragon" !
+        light = "lotus"
+    },
+})
+
+-- setup must be called before loading
+vim.cmd("colorscheme kanagawa")
+
 vim.o.termguicolors = true          -- enable GUI colors in the TUI 
 vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1  -- ensure legacy support if needed
-vim.g.wal_path = os.getenv("HOME") .. "/.cache/wal/colors.json"
-vim.cmd('colorscheme wal')   -- or "wpgtkAlt"
+-- vim.g.wal_path = os.getenv("HOME") .. "/.cache/wal/colors.json"
+vim.cmd('colorscheme kanagawa')   -- or "wpgtkAlt"
 
 vim.cmd [[
   highlight Normal   guibg=NONE ctermbg=NONE
