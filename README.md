@@ -9,6 +9,7 @@ Personal Neovim config using [lazy.nvim](https://github.com/folke/lazy.nvim). Wo
 | Neovim 0.10+ | [releases](https://github.com/neovim/neovim/releases) | `brew install neovim` | `winget install Neovim.Neovim` |
 | git | `sudo apt install git` | `brew install git` | `winget install Git.Git` |
 | C compiler (treesitter) | `sudo apt install gcc` | Xcode CLI tools | Visual Studio Build Tools |
+| tree-sitter CLI | `sudo apt install tree-sitter-cli` | `brew install tree-sitter` | `winget install tree-sitter.tree-sitter` |
 | Java 17+ (JDTLS only) | `sudo apt install openjdk-17-jdk` | `brew install openjdk@17` | [Adoptium](https://adoptium.net) |
 
 ## Install
